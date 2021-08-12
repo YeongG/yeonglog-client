@@ -1,0 +1,5 @@
+/node_modules
+react-app-env.d.ts
+.DS_Store
+yarn.lock
+.env
