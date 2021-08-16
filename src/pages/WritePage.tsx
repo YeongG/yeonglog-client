@@ -55,8 +55,15 @@ const WritePage: FC = () => {
           />
         </TitleWrpaper>
         <Editor
+          height="auto"
+          minHeight="300px"
+          hideModeSwitch
           plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
         />
+        <div className="footer-wrap">
+          <button className="thum">썸네일</button>
+          <button className="submit">작성</button>
+        </div>
       </MarginWrapper>
     </Container>
   );
@@ -68,12 +75,30 @@ const MarginWrapper = styled(Media1000Div)`
   .toastui-editor-md-container {
     z-index: 3;
   }
+  .footer-wrap {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    button {
+      padding: 15px 0;
+      color: white;
+      border-radius: 4px;
+      width: calc(50% - 10px);
+      background: #2271b1;
+      transition: 0.3s all;
+      font-size: 16px;
+
+      &:hover {
+        background: #185281;
+      }
+    }
+  }
 `;
 const TitleWrpaper = styled.div`
   display: flex;
 
   > div {
-    width: 200px;
+    width: 100px;
   }
 `;
 const TitleInput = styled.input`
@@ -82,8 +107,8 @@ const TitleInput = styled.input`
   border-top-right-radius: 4px;
   box-sizing: border-box;
   padding: 10px;
-  font-weight: 900;
-  font-size: 35px;
+  font-weight: 700;
+  font-size: 25px;
 `;
 
 const CategoryWrap = styled.div``;

@@ -1,3 +1,4 @@
+import { useOutsideClick } from "@src/hooks";
 import { useMemo } from "react";
 import { useCallback } from "react";
 import { FC, useState } from "react";
@@ -18,7 +19,9 @@ interface Props {
 
 const SelectBox: FC<Props> = ({ value, placeholder, options, onChange }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  // const ref = useOutside;
+  const ref = useOutsideClick<HTMLDivElement>(() => {
+    setIsOpen(false);
+  });
   const switchIsOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
@@ -35,7 +38,7 @@ const SelectBox: FC<Props> = ({ value, placeholder, options, onChange }) => {
   }, [options]);
 
   return (
-    <Container onClick={switchIsOpen}>
+    <Container ref={ref} onClick={switchIsOpen}>
       <div>{value || placeholder}</div>
       <svg
         width="12"
@@ -73,13 +76,22 @@ export const ItemWraps = styled.div`
   left: 0;
   border: 1px solid #ddd;
   box-sizing: border-box;
+  max-height: 120px;
+  overflow-y: auto;
 `;
 
 export const Item = styled.div`
   width: 100%;
+  height: 60px;
   cursor: pointer;
   box-sizing: border-box;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+
+  & + & {
+    border-top: 1px solid #ddd;
+  }
 `;
 
 export default SelectBox;
