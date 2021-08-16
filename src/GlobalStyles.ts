@@ -26,7 +26,7 @@ export class MediaCss {
 export const Media1000Div = styled.div`
   width: 1000px;
   margin: 0 auto;
-  transition: 0.3s all;
+  transition: 0.3s width;
 
   ${MediaCss.media1000(css`
     width: calc(100% - 20px);
@@ -36,5 +36,19 @@ export const Media1000Div = styled.div`
 export const GlobalStyle = createGlobalStyle`
     body {
         margin:0;
+        font-family: Noto Sans Kr;
+    }
+    input, button {
+      outline:none;
+      border:none;
+      font-family: Noto Sans Kr;
+    }
+    
+    button {
+      cursor: pointer;
+    }
+    a {
+      text-decoration:none;
+      color:unset;
     }
 `;

@@ -7,7 +7,8 @@
       "@pages/*": ["src/pages/*"],
       "@pieces/*": ["src/pieces/*"],
       "@apis/*": ["src/apis/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"]
     }
   }
 }
